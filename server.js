@@ -87,5 +87,5 @@ app.delete("/api/todos/:todo_id", function(req, res){
 app.get("*", function(req, res) {
    res.sendFile("./public/index.html", {"root": __dirname});  // load the single view file for Angular.
 });
-app.listen(8080);
-console.log("App listening on port 8080");
+app.listen(process.env.PORT || 8080);
+console.log("App is running");
