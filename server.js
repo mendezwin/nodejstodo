@@ -12,7 +12,7 @@ var methodOverride = require("method-override"); // simulate DELETE and PUT with
 // configuration =================
 
 // grab the MONGOLAB Enviorenment variable
-mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+mongoose.connect(process.env.MONGODB_URI, function (error) {
     if (error) console.error(error);
     else console.log('mongo connected');
 });
