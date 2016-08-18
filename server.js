@@ -11,8 +11,12 @@ var methodOverride = require("method-override"); // simulate DELETE and PUT with
 
 // configuration =================
 
-mongoose.connect("mongodb://localhost:27017"); // local mongodb instance
- 
+// grab the MONGOLAB Enviorenment variable
+mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
+
 app.use(express.static(__dirname + "/public")); // set the static files location /public/img will be /img for user
 app.use(morgan("dev")); // log every request in console
 app.use(bodyParser.urlencoded({"extended":"true"})); // parse application/x-www-form-urlencoded
